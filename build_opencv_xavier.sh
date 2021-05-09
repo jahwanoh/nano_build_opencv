@@ -92,6 +92,7 @@ install_dependencies () {
         libx264-dev \
         pkg-config \
         python-dev \
+        python3.7-dev \
         python-numpy \
         python3-dev \
         python3-numpy \
