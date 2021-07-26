@@ -21,7 +21,7 @@ fi
 
 cleanup () {
 # https://stackoverflow.com/questions/226703/how-do-i-prompt-for-yes-no-cancel-input-in-a-linux-shell-script
-    rm -rf /$NEW_HOME/build_opencv ; break;;
+    rm -rf /$NEW_HOME/build_opencv
     #while true ; do
      #   echo "Do you wish to remove temporary build files in /$NEW_HOME/build_opencv ? "
      #   if ! [[ "$1" -eq "--test-warning" ]] ; then
