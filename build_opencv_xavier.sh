@@ -4,12 +4,7 @@
 set -e
 
 # change default constants here:
-if [ -d "/media/bepro/bepro" ] 
-then
-    readonly NEW_HOME=/media/bepro/bepro
-else
-    readonly NEW_HOME=/root
-fi
+readonly NEW_HOME=~
 #readonly NEW_HOME=/media/bepro/bepro
 readonly PREFIX=/usr/local  # install prefix, (can be ~/.local for a user install)
 readonly DEFAULT_VERSION=3.4.1  # controls the default version (gets reset by the first argument)
@@ -26,18 +21,19 @@ fi
 
 cleanup () {
 # https://stackoverflow.com/questions/226703/how-do-i-prompt-for-yes-no-cancel-input-in-a-linux-shell-script
-    while true ; do
-        echo "Do you wish to remove temporary build files in /$NEW_HOME/build_opencv ? "
-        if ! [[ "$1" -eq "--test-warning" ]] ; then
-            echo "(Doing so may make running tests on the build later impossible)"
-        fi
-        read -p "Y/N " yn
-        case ${yn} in
-            [Yy]* ) rm -rf /$NEW_HOME/build_opencv ; break;;
-            [Nn]* ) exit ;;
-            * ) echo "Please answer yes or no." ;;
-        esac
-    done
+    rm -rf /$NEW_HOME/build_opencv ; break;;
+    #while true ; do
+     #   echo "Do you wish to remove temporary build files in /$NEW_HOME/build_opencv ? "
+     #   if ! [[ "$1" -eq "--test-warning" ]] ; then
+     #       echo "(Doing so may make running tests on the build later impossible)"
+     #   fi
+     #   read -p "Y/N " yn
+     #   case ${yn} in
+     #       [Yy]* ) rm -rf /$NEW_HOME/build_opencv ; break;;
+     #       [Nn]* ) exit ;;
+     #       * ) echo "Please answer yes or no." ;;
+     #   esac
+    #done
 }
 
 setup () {
