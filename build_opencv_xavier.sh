@@ -4,7 +4,13 @@
 set -e
 
 # change default constants here:
-readonly NEW_HOME=/media/bepro/bepro
+if [ -d "/media/bepro/bepro" ] 
+then
+    readonly NEW_HOME=/media/bepro/bepro
+else
+    readonly NEW_HOME=/root
+fi
+#readonly NEW_HOME=/media/bepro/bepro
 readonly PREFIX=/usr/local  # install prefix, (can be ~/.local for a user install)
 readonly DEFAULT_VERSION=3.4.1  # controls the default version (gets reset by the first argument)
 readonly CPUS=$(nproc)  # controls the number of jobs
